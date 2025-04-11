@@ -1,0 +1,22 @@
+#pragma warning(disable : 4996)
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#include <locale.h>
+#define LETTER 1
+#define NOT_THE_LETTER 0
+#define MAXLEN 1000
+#define MAXLEN2 100
+char list_id[MAXLEN2][MAXLEN] = { "\0" }; //список идентификаторов
+int dlina_slova = 0;
+int proverka(char* ptr, int i) //проверяю на слова int float ...
+{
+	char type_name[4][MAXLEN] = { "int ","float ","double ","char " };
+	char* ptr_const = type_name[i];
+	while (*ptr_const != '\0') { // Проверяем, переменная ли это?
+		if (*ptr != *ptr_const)
+			return 0;
+		ptr++; ptr_const++;
+	}
+	return 1;
+}
